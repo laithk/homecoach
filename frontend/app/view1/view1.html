@@ -1,7 +1,64 @@
-<p>This is the partial for view 1.</p>
-<label for="singleSelect"> Single select with "not selected" option and dynamic option values: </label><br>
-<select name="singleSelect" id="singleSelect" ng-model="data.singleSelect">
-    <option value="">---Please select---</option> <!-- not selected / blank option -->
-    <option value="{{data.option1}}">Option 1</option> <!-- interpolation -->
-    <option value="option-2">Option 2</option>
-</select><br>
+<script>
+    $(document).ready(function () {
+        $("button").click(function () {
+            $(".photos").animate({right: '500px'}, "slow");
+        });
+    });
+</script>
+<form name="myForm" ng-controller="View1Ctrl">
+
+
+    <div data-ng-if="show.v1">
+        <p>Wil je een huis kopen?</p>
+        <label>
+            <input type="radio" ng-model="keuze.v1" value="Ja" ng-change="v1Changed()">
+            Ja
+        </label><br/>
+        <label>
+            <input type="radio" ng-model="keuze.v1" value="Nee" ng-change="v1Changed()">
+            Nee
+        </label><br/>
+        <label>
+            <input type="radio" ng-model="keuze.v1" value="ik weet het nog niet" ng-change="v1Changed()">
+            Ik Weet het nog niet
+        </label>
+    </div>
+    <div data-ng-if="show.v2">
+        <p>Wil je een bestaandebouw of nieuwbouw?</p>
+        <label>
+            <input type="radio" ng-model="keuze.v2" value="bestaandebouw" ng-change="v2Changed()">
+            Bestaande bouw
+        </label><br/>
+        <label>
+            <input type="radio" ng-model="keuze.v2" value="nieuwbouw" ng-change="v2Changed()">
+            Nieuwbouw
+        </label><br/>
+        <label>
+            <input type="radio" ng-model="keuze.v2" value="ik weet het nog niet" ng-change="v2Changed()">
+            Ik Weet het nog niet
+        </label>
+    </div>
+    <div data-ng-if="show.v3">
+        <p>Wil je een bestaandebouw of nieuwbouw?</p>
+        <label>
+            <input type="radio" ng-model="keuze.v3" value="bestaandebouw" ng-change="v3Changed()">
+            Bestaande bouw
+        </label><br/>
+        <label>
+            <input type="radio" ng-model="keuze.v3" value="nieuwbouw" ng-change="v3Changed()">
+            Nieuwbouw
+        </label><br/>
+        <label>
+            <input type="radio" ng-model="keuze.v3" value="ik weet het nog niet" ng-change="v3Changed()">
+            Ik Weet het nog niet
+        </label>
+    </div>
+
+    <div class="photos">
+        <img src="test.png" alt=""/>
+    </div>
+
+    <div class="photos" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+    <br/>
+    <button>Start Animation</button>
+</form>
